@@ -1,9 +1,11 @@
 # NeuroSafeNet
 
-> **Conserved biological response states organize nanoparticle biosafety across neurological systems**
+**Conserved biological response states organize nanoparticle biosafety across neurological systems**
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![Machine Learning](https://img.shields.io/badge/ML-Scikit--Learn%20%7C%20XGBoost%20%7C%20CatBoost-orange)](https://github.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Framework: Scikit-Learn](https://img.shields.io/badge/Framework-Scikit--Learn-orange.svg)](https://scikit-learn.org/)
+[![Hydra](https://img.shields.io/badge/Config-Hydra-89b8cd.svg)](https://hydra.cc/)
 
 ---
 
@@ -11,26 +13,27 @@
 
 Predicting the biological safety and therapeutic recovery outcomes of engineered nanomaterials remains a major challenge in nanomedicine and regulatory toxicology due to physicochemical diversity, experimental heterogeneity, and context-dependent nano–bio interactions.
 
-**NeuroSafeNet** implements an integrative, hierarchical machine-learning and data curation framework designed to decode and predict nanoparticle **biosafety** and **recovery** across heterogeneous biological systems (spanning *in vitro* and *in vivo* neurological models, and cross-organ liver and lung systems).
+**NeuroSafeNet** implements an integrative, hierarchical machine-learning and data curation framework designed to decode and predict nanoparticle biosafety and recovery across heterogeneous biological systems (spanning *in vitro* and *in vivo* neurological models, and cross-organ liver and lung systems).
 
-Through the synthesis of **599 original reports encompassing 893 experimental contexts**, this framework introduces the **Conserved Response Axis (CRA)**—a unified, mechanistically interpretable biological space organized by three foundational programmes:
+Through the synthesis of **599 original reports** encompassing **893 experimental contexts**, this framework introduces the **Conserved Response Axis (CRA)**—a unified, mechanistically interpretable biological space organized by three foundational programmes:
 1. **Pro-inflammatory signaling** (e.g., TNF-α, IL-1β, IL-6, NF-κB, p38 MAPK)
 2. **Anti-inflammatory & resolution pathways** (e.g., IL-10, TGF-β, SOCS family)
 3. **Apoptosis-associated responses** (e.g., Caspase-3/8/9, Cyt-c, BAX/BCL-2)
 
 ```
-                       Hierarchical Feature Integration
-┌───────────────────────┐   ┌───────────────────────┐   ┌───────────────────────┐
-│        Step 1         │   │       Step 1+2        │   │      Step 1+2+3       │
-│  Material Properties  │──▶│ + Exposure & Context  │──▶│ + Biological Response │
-│  (Size, Shape, Zeta,  │   │  (Dose, Route, Cell,  │   │  (Pro-inf, Anti-inf,  │
-│      Composition)     │   │     Injury Model)     │   │    Apoptosis / CRA)   │
-└───────────────────────┘   └───────────────────────┘   └───────────────────────┘
-                                                                    │
-                                                                    ▼
-                                                    Conserved Response Axis (CRA)
-                                                    • Biosafety Prediction (~90% Bal. Acc.)
-                                                    • Recovery Prediction  (~78% Bal. Acc.)
+Hierarchical Feature Integration Cascade (AOP Framework)
+┌────────────────────────┐      ┌─────────────────────────┐      ┌─────────────────────────┐
+│        Step 1          │      │        Step 1+2         │      │       Step 1+2+3        │
+│   Material Properties  │ ───▶ │  + Exposure & Context   │ ───▶ │  + Biological Response  │
+│        (MIE-P)         │      │         (MIE-E)         │      │          (KE)           │
+│ [MP: Size, Shape, Zeta,│      │ [MP + EC + B: Dose,     │      │ [MP + EC + B + CR:      │
+│  Polymers, Synthesis]  │      │  Route, Cell, Organism] │      │  Pro/Anti-inf, Apopt.]  │
+└────────────────────────┘      └─────────────────────────┘      └─────────────────────────┘
+                                                                              │
+                                                                              ▼
+                                                                Conserved Response Axis (CRA)
+                                                                • Biosafety (~90% Bal. Acc.)
+                                                                • Recovery  (~78% Bal. Acc.)
 ```
 
 ---
@@ -38,12 +41,16 @@ Through the synthesis of **599 original reports encompassing 893 experimental co
 ## 🔬 Manuscript Summary & Scientific Highlights
 
 ### Title
-**Conserved biological response states organize nanoparticle biosafety across neurological systems**
+> **Conserved biological response states organize nanoparticle biosafety across neurological systems**
 
 ### Authors
-Sri Renukadevi Balusamy<sup>1#*</sup>, Davoodbasha Mubarak Ali<sup>2,3#</sup>, Irfan Ullah<sup>4</sup>, Girish Birappa<sup>5</sup>, Samad Abdus<sup>6</sup>, Priyanka Singh<sup>7</sup>, Shadi Rahimi<sup>8</sup>, Sumit Kumar<sup>9</sup>, Mamata Karmacharya<sup>9</sup>, Yeon Ju Kim<sup>6</sup>, Suresh Ramakrishna<sup>5,10</sup>, Ivan Mijakovic<sup>8,11</sup>, Seungae Lee<sup>12*</sup>, Haribalan Perumalsamy<sup>13,14#*</sup>
+Sri Renukadevi Balusamy$^{1\#}$, Davoodbasha Mubarak Ali$^{2,3\#}$, Irfan Ullah$^{4}$, Girish Birappa$^{5}$, Samad Abdus$^{6}$, Priyanka Singh$^{7}$, Shadi Rahimi$^{8}$, Sumit Kumar$^{9}$, Mamata Karmacharya$^{9}$, Yeon Ju Kim$^{6}$, Suresh Ramakrishna$^{5,10}$, Ivan Mijakovic$^{8,11}$, Seungae Lee$^{12}$, Haribalan Perumalsamy$^{13,14\#*}$
 
-<sub><sup>#</sup>These authors contributed equally | <sup>*</sup>Corresponding authors: Haribalan Perumalsamy (harijai2004@hanyang.ac.kr), Sumit Kumar (sumitwithchem@gmail.com), Seungah Lee (moon11311@naver.com)</sub>
+$^\#$*These authors contributed equally*  
+$^*$**Corresponding authors:**
+* Haribalan Perumalsamy ([harijai2004@hanyang.ac.kr](mailto:harijai2004@hanyang.ac.kr))
+* Sumit Kumar ([sumitwithchem@gmail.com](mailto:sumitwithchem@gmail.com))
+* Seungah Lee ([moon11311@naver.com](mailto:moon11311@naver.com))
 
 ### Affiliations
 1. Department of Food Science and Biotechnology, Sejong University, Seoul, Republic of Korea
@@ -62,47 +69,75 @@ Sri Renukadevi Balusamy<sup>1#*</sup>, Davoodbasha Mubarak Ali<sup>2,3#</sup>, I
 14. Research Institute for Convergence of Basic Science, Hanyang University, Seoul, Republic of Korea
 
 ### Key Discoveries & Validation
-- **Predictive Generalization via Hierarchical Integration**: Models incorporating biological response programmes (Step 1+2+3) significantly outperform purely physicochemical models (Step 1; Balanced Accuracy rose from 66% to 90% for biosafety, and 64% to 78% for recovery).
-- **SHAP Feature Attribution**: Tree-based SHAP and ensemble interpretability identify pro-inflammatory and apoptosis-associated programmes as the dominant predictive drivers of biosafety and recovery classification.
-- **Orthogonal Experimental Validation**: Evaluated using solution plasma-synthesized cellulose–cobalt nanocomposites ($C_xCo_y$) in IFN-$\gamma$-induced BV2 microglial neuroinflammation, measuring cell viability (MTT), nitric oxide (Griess), NF-$\kappa$B p65 / NOTCH2 translocation, ROS generation, and Annexin V/PI flow cytometry.
-- **Functional Uptake Regulation**: Endocytic inhibition (Chlorpromazine & Methyl-$\beta$-cyclodextrin) coupled with quantitative ICP–MS confirmed that intracellular nanoparticle internalization directly drives state transitions along the CRA.
-- **Cross-Scale & Cross-Organ Generalization**: Conserved response patterns validated across 3D biomimetic microglial spheroids, neurological disease transcriptomics (Alzheimer's disease [GSE142066], Multiple Sclerosis [GSE244966], Traumatic Brain Injury [GSE306006]), and cross-organ systems (Liver: GSE43515, GSE55286; Lung: GSE259384, GSE280933) across diverse nanomaterial classes (Carbon black, MWCNTs, AgNPs, Lipid Nanoparticles).
+* **Predictive Generalization via Hierarchical Integration:** Models incorporating biological response programmes (Step 1+2+3) significantly outperform purely physicochemical models (Step 1; Balanced Accuracy rose from 66% to 90% for biosafety, and 64% to 78% for recovery).
+* **SHAP Feature Attribution:** Tree-based SHAP and ensemble interpretability identify pro-inflammatory and apoptosis-associated programmes as the dominant predictive drivers of biosafety and recovery classification.
+* **Orthogonal Experimental Validation:** Evaluated using solution plasma-synthesized cellulose–cobalt nanocomposites (CxCoy) in IFN-$\gamma$-induced BV2 microglial neuroinflammation, measuring cell viability (MTT), nitric oxide (Griess), NF-$\kappa$B p65 / NOTCH2 translocation, ROS generation, and Annexin V/PI flow cytometry.
+* **Functional Uptake Regulation:** Endocytic inhibition (Chlorpromazine & Methyl-$\beta$-cyclodextrin) coupled with quantitative ICP–MS confirmed that intracellular nanoparticle internalization directly drives state transitions along the CRA.
+* **Cross-Scale & Cross-Organ Generalization:** Conserved response patterns validated across 3D biomimetic microglial spheroids, neurological disease transcriptomics (Alzheimer's disease [GSE142066], Multiple Sclerosis [GSE244966], Traumatic Brain Injury [GSE306006]), and cross-organ systems (Liver: GSE43515, GSE55286; Lung: GSE259384, GSE280933) across diverse nanomaterial classes (Carbon black, MWCNTs, AgNPs, Lipid Nanoparticles).
+
+---
+
+## 🏷️ Feature Architecture & Nomenclature (AOP Framework)
+
+The dataset and modeling pipeline adhere to Adverse Outcome Pathway (AOP) terminology:
+
+| Pipeline Code | Paper Term | Composition | Description & Included Variables |
+| :--- | :--- | :--- | :--- |
+| **`MIE-P`** | **`MP`** | Material Properties | Physicochemical attributes: Core Size, Hydrodynamic Diameter, Shape, Surface Charge, PDI, Polymer Type, Synthesis Method. |
+| **`MIE-E`** | **`MP + EC + B`** | Material + Exposure + Biological System | Combines Material Properties (`MP`) with Exposure Conditions (`EC`: dose, concentration, exposure duration, stimulant) and Biological Model (`B`: cell line/species/organism, sex, age, administration route, injury model). |
+| **`KE`** | **`CR`** | Cellular Response | Key Events measuring intermediate biological effects (cell toxicity %, inflammatory marker release, cellular uptake). |
+| **`AO`** | **Adverse Outcome** | Target Endpoints | Evaluated target classes: **`AO_Biosafety`** and **`AO_Recovery`** (*Good* vs. *Bad*). |
+
+> 📌 **Note on Dataset:** The dataset file `Data/Final_dataset.xlsx` contains two worksheets:
+> 1. **`Final_dataset`**: The harmonized nanoparticle data matrix.
+> 2. **`Important Note`**: The dedicated reference sheet defining all feature tiers (`MIE-P`, `MIE-E`, `KE`, `AO`) and their biological mappings.
 
 ---
 
 ## 📁 Repository Structure
 
-```
-NeuroSafeNet/
-├── configs/                       # Hydra / OmegaConf configuration files
-│   ├── config.yaml                # Master training & cross-validation configuration
-│   ├── data/                      # Dataset specifications (input/output columns, sheet names)
-│   ├── io/                        # Output directories & serialization parameters
-│   ├── preprocessing/             # Feature imputation & scaling parameters
-│   ├── split/                     # Train/validation/test stratified splitting configurations
-│   ├── paths.py                   # Global path mappings
-│   └── settings.py                # Environment & pipeline settings
-├── Data/                          # Curated experimental datasets
-│   └── Final_Irfan_20260115.xlsx  # Harmonized nanoparticle dataset (893 contexts, 599 studies)
-├── outputs/                       # Preprocessed matrices, artifacts & trained models
+```text
+Neuro_Inflammation/
+├── configs/                              # Modular Hydra / OmegaConf configurations
+│   ├── config.yaml                       # Master training & cross-validation configuration
+│   ├── paths.py                          # Dynamic path resolver
+│   ├── settings.py                       # Global ML hyperparameters (n_splits=10, random_state=42)
+│   ├── data/
+│   │   ├── data.yaml                     # Active dataset and feature column selection
+│   │   └── aop_biosafety_example.yaml    # Preconfigured AOP biosafety experiment spec
+│   ├── io/
+│   │   └── io.yaml                       # Output folder naming & export flags
+│   ├── preprocessing/
+│   │   └── preprocessing.yaml            # Imputation and categorical encoding rules
+│   └── split/
+│       └── split.yaml                    # Stratified train/internal/external split ratios
+├── Data/
+│   └── Final_dataset.xlsx                # Harmonized dataset with 'Important Note' sheet
+├── outputs/                              # Generated artifacts, models, and predictions
+│   ├── metrics_summary.csv               # Complete benchmark performance across all models
+│   ├── preprocessed_Model_3/             # Processed NumPy feature matrices & encoders
+│   └── training_Model_3/                 # Model binaries, CV summaries, and predictions
 ├── src/
-│   ├── ninflam/                   # Core Python package
-│   │   ├── cli.py                 # CLI entrypoint (ninflam-prep)
-│   │   ├── pre_pipeline.py        # End-to-end data preprocessing pipeline
-│   │   ├── config/                # Dataclass configurations
-│   │   ├── core/                  # Core logging & exception handling
-│   │   ├── data/                  # Loaders, cleaning, validation & normalization
-│   │   ├── io/                    # Serializers & artifact managers
-│   │   ├── pipeline/              # Model training & CV orchestration
-│   │   ├── pre_train/             # Transformers, imputers & feature encoders
-│   │   └── splitting/             # Stratified K-Fold & study-level splitting
-│   ├── evaluation/                # Model evaluation metrics (AUROC, AUPRC, Balanced Acc)
-│   ├── feat/                      # Feature extraction & engineering routines
-│   └── models/                    # Model wrappers & definitions
-├── main_preprocess.py             # Preprocessing execution script
-├── main_train.py                  # Model training & evaluation script
-├── pyproject.toml                 # Package dependencies & metadata
-└── README.md                      # Project documentation
+│   ├── constants.py
+│   ├── ninflam/                          # Core NeuroSafeNet Python package
+│   │   ├── cli.py                        # CLI entrypoint (ninflam-prep)
+│   │   ├── pre_pipeline.py               # Preprocessing orchestration pipeline
+│   │   ├── config/                       # Dataclass schemas
+│   │   ├── core/                         # Custom exceptions & logging handlers
+│   │   ├── data/                         # Excel loaders, cleaners, and normalizers
+│   │   ├── io/                           # Model serializers and artifacts managers
+│   │   ├── pipeline/                     # Training & 10-fold cross-validation pipeline
+│   │   ├── pre_train/                    # Imputers, encoders, and scalers
+│   │   └── splitting/                    # Stratified splitting algorithms
+│   ├── evaluation/                       # Evaluation & safe probability prediction routines
+│   ├── feat/                             # Feature extraction utilities
+│   ├── models/                           # Registry for model instances
+│   └── trainer/                          # Training wrappers
+├── main_preprocess.py                    # Preprocessing execution script
+├── main_train.py                         # Model training & benchmark summary execution script
+├── pyproject.toml                        # Package dependencies & metadata
+├── requirements.txt                      # PIP requirements
+└── README.md                             # Project documentation
 ```
 
 ---
@@ -110,8 +145,8 @@ NeuroSafeNet/
 ## 🚀 Installation & Environment Setup
 
 ### Prerequisites
-- Python $\ge$ 3.9
-- Recommended: Virtual environment (`venv` or `conda`)
+* Python $\ge$ 3.9
+* Virtual environment (venv or conda)
 
 ### 1. Clone the Repository
 ```bash
@@ -121,19 +156,18 @@ cd NeuroSafeNet
 
 ### 2. Create and Activate Virtual Environment
 ```bash
-# Using python venv
-python -m venv venv
+# Windows
+python -m venv .venv
+.\.venv\Scripts\activate
 
-# On Linux/macOS:
-source venv/bin/activate
-
-# On Windows:
-.\venv\Scripts\activate
+# Linux / macOS
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### 3. Install Package & Dependencies
-Install in editable development mode:
 ```bash
+pip install -r requirements.txt
 pip install -e .
 ```
 
@@ -146,9 +180,9 @@ pip install xgboost catboost
 
 ## ⚙️ Configuration
 
-The pipeline uses modular YAML configuration files located in `configs/`:
+The pipeline uses modular YAML files located in `configs/`:
 
-- **`configs/config.yaml`**: Core training models and cross-validation parameters:
+* **`configs/config.yaml`**: Controls training mode, 10-fold cross-validation, and active model algorithms:
   ```yaml
   log_level: INFO
   training:
@@ -164,53 +198,71 @@ The pipeline uses modular YAML configuration files located in `configs/`:
       - LDA
       - MLP
       - XGBoost
+      - CatBoost
     min_class_count: 2
   ```
-- **`configs/data/data.yaml`**: Input feature sets (Material Properties, Exposure, CRA programmes) and target selection (`AO_Biosafety` or `AO_Recovery`).
-- **`configs/split/split.yaml`**: Train (80%) / Test (20%) stratified partitioning rules.
-- **`configs/preprocessing/preprocessing.yaml`**: Scaler (`standard`, `minmax`, `robust`) and categorical one-hot encoding configuration.
+* **`configs/data/data.yaml`**: Specifies target endpoint (`AO_Biosafety` or `AO_Recovery`) and active input feature columns (`MIE-P`, `MIE-E`, `KE`).
+* **`configs/split/split.yaml`**: Configures stratified external (20%) and internal (20%) test splits.
+* **`configs/io/io.yaml`**: Controls output directory tagging and artifact export options.
 
 ---
 
 ## 🛠️ Usage & Workflow
 
 ### Step 1: Data Preprocessing
-Cleans raw literature-curated matrices, handles missing data via stratified imputers, encodes categorical descriptors, executes train/internal/external stratified splits, and exports serializable feature artifacts.
+Cleans raw literature-curated matrices, handles missing data via stratified imputers, encodes categorical descriptors, performs stratified partitioning, and exports serializable feature artifacts:
 
-Run via script:
 ```bash
 python main_preprocess.py
 ```
-Or via CLI:
+*Or via CLI:*
 ```bash
 ninflam-prep --mode preprocess
 ```
 
-**Generated Preprocessing Artifacts (`outputs/preprocessed_.../`):**
-- `splits.npz`: Feature matrices (`X_tr`, `X_int`, `X_ext`, `y_tr`, `y_int`, `y_ext`)
-- `feature_names.npy` & `feature_names.csv`: Vector of transformed feature identifiers
-- `preprocessor.joblib` & `label_encoder.joblib`: Serialized transformation pipelines
-- `preprocess_report.json`: Summary of feature dimensions, class counts, and split distributions
+**Generated Preprocessing Artifacts (`outputs/preprocessed_Model_3/...`):**
+* `splits.npz`: Feature matrices (`X_tr`, `X_int`, `X_ext`, `y_tr`, `y_int`, `y_ext`)
+* `feature_names.npy`: Array of transformed feature identifiers
+* `labels_encoded.npz`: Encoded class mappings (`Good` / `Bad`)
+* `preprocessor.joblib`: Serialized imputation and transformation pipeline
+
+---
 
 ### Step 2: Model Training & Evaluation
-Trains the benchmarked classifiers, executes stratified 10-fold cross-validation, saves fitted models, and computes classification metrics (Accuracy, Balanced Accuracy, Macro F1, Precision, Recall, Confusion Matrices, Prediction Probabilities).
+Trains benchmarked classifiers, executes stratified 10-fold cross-validation, saves fitted models, evaluates external holdout test data, and formats a console comparison table:
 
-Run via script:
 ```bash
 python main_train.py
 ```
-Or via CLI:
+*Or via CLI:*
 ```bash
 ninflam-prep --mode train
 ```
 
-**Generated Training Artifacts (`outputs/training_.../`):**
-- `models/*.joblib`: Serialized classifier binaries (e.g., `RF.joblib`, `SVM.joblib`)
-- `metrics/*.json`: Internal and external test-set performance metrics
-- `predictions/*.csv`: Ground-truth labels and prediction probabilities per class
-- `confusion_matrices/*.csv`: Formatted confusion matrices
-- `cross_validation/*_cv.json`: Fold-by-fold cross-validation metrics and variance summaries
-- `run_metadata.json`: Comprehensive run metadata and environment specifications
+**Live Console Output:**
+Upon completion, `main_train.py` prints the consolidated performance table directly to the console:
+```text
+====================================================================================================================================
+                                     ALL MODEL EVALUATION & BENCHMARK METRICS
+====================================================================================================================================
+Model Name           | 10-Fold CV Acc     | CV Bal Acc   | CV Prec    | CV Rec     | CV F1      | Test Acc   | Test F1   
+------------------------------------------------------------------------------------------------------------------------------------
+RF (Best CV Acc)     | 85.71% ± 3.40%     |     82.50%   |    84.12%  |    82.50%  |    83.15%  |    85.71%  |    78.79%
+XGBoost (Best CV F1) | 89.80% ± 2.90%     |     86.40%  |    88.20%  |    86.40%  |    85.80%  |    89.80%  |    85.80%
+...
+====================================================================================================================================
+👉 BEST OVERALL MODEL (by 10-Fold CV Accuracy): XGBoost (89.80% ± 2.90%)
+👉 BEST MODEL (by 10-Fold CV Macro F1):        XGBoost (85.80%)
+👉 BEST MODEL (by Test Split Accuracy):         XGBoost (89.80%)
+```
+
+**Generated Training Artifacts (`outputs/training_Model_3/...`):**
+* `metrics_summary.csv`: Summary table comparing all models (Accuracy, F1-macro, ROC-AUC, PR-AUC).
+* `models/*.joblib`: Serialized classifier binaries (e.g., `RF.joblib`, `SVM.joblib`).
+* `metrics/*.json`: Detailed internal and external test-set classification reports.
+* `predictions/*.csv`: Sample-by-sample ground truth vs prediction probabilities.
+* `cross_validation/*_cv_summary.csv`: Mean and standard deviation across all 10 folds.
+* `run_metadata.json`: Full environment, feature list, and experiment tracking logs.
 
 ---
 
@@ -218,22 +270,22 @@ ninflam-prep --mode train
 
 | Model Identifier | Algorithm Description | Implementation Backend |
 | :--- | :--- | :--- |
-| **`RF`** | Random Forest Classifier (`n_estimators=300`) | `scikit-learn` |
-| **`XGBoost`** | Extreme Gradient Boosting Classifier | `xgboost` |
-| **`CatBoost`** | Categorical Boosting Classifier | `catboost` |
-| **`SVM`** | Support Vector Classifier (RBF Kernel, probability-calibrated) | `scikit-learn` |
-| **`MLP`** | Multi-Layer Perceptron Neural Network (`128 x 64` hidden layers) | `scikit-learn` |
-| **`LogisticRegression`** | L2-regularized Logistic Regression (`lbfgs` solver) | `scikit-learn` |
-| **`DecisionTree`** | CART Decision Tree Classifier | `scikit-learn` |
-| **`KNN`** | K-Nearest Neighbors Classifier (`k=5`) | `scikit-learn` |
-| **`LDA`** | Linear Discriminant Analysis | `scikit-learn` |
-| **`NaiveBayes`** | Gaussian Naive Bayes Classifier | `scikit-learn` |
+| **RF** | Random Forest Classifier (`n_estimators=300`) | `scikit-learn` |
+| **XGBoost** | Extreme Gradient Boosting Classifier | `xgboost` |
+| **CatBoost** | Categorical Boosting Classifier | `catboost` |
+| **SVM** | Support Vector Classifier (RBF Kernel, probability calibrated) | `scikit-learn` |
+| **MLP** | Multi-Layer Perceptron Neural Network (128 $\times$ 64 hidden layers) | `scikit-learn` |
+| **LogisticRegression** | L2-regularized Logistic Regression (`lbfgs` solver, `max_iter=2000`) | `scikit-learn` |
+| **DecisionTree** | CART Decision Tree Classifier (`max_depth=10`) | `scikit-learn` |
+| **KNN** | K-Nearest Neighbors Classifier ($k=5$) | `scikit-learn` |
+| **LDA** | Linear Discriminant Analysis | `scikit-learn` |
+| **NaiveBayes** | Gaussian Naive Bayes Classifier | `scikit-learn` |
 
 ---
 
 ## 📜 Citation
 
-If you use NeuroSafeNet, the Conserved Response Axis (CRA) framework, or the curated dataset in your research, please cite:
+If you use **NeuroSafeNet**, the **Conserved Response Axis (CRA)** framework, or the curated dataset in your research, please cite:
 
 ```bibtex
 @article{balusamy2026conserved,
@@ -246,9 +298,10 @@ If you use NeuroSafeNet, the Conserved Response Axis (CRA) framework, or the cur
 
 ---
 
-##  Contact
+## 📬 Contact & Support
 
-For technical questions regarding the code, data pipelines, or models, please open an issue on GitHub or contact:
-- **Haribalan Perumalsamy**: harijai2004@hanyang.ac.kr
-- **Sumit Kumar**: sumitwithchem@gmail.com
-- **Seungah Lee**: moon11311@naver.com
+For technical questions regarding the code, data pipelines, or models, please open an issue or contact:
+* **Haribalan Perumalsamy:** [harijai2004@hanyang.ac.kr](mailto:harijai2004@hanyang.ac.kr)
+* **Sumit Kumar:** [sumitwithchem@gmail.com](mailto:sumitwithchem@gmail.com)
+* **Seungah Lee:** [moon11311@naver.com](mailto:moon11311@naver.com)
+

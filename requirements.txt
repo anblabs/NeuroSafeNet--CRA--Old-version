@@ -1,0 +1,26 @@
+# Core Data Science & Numerical Computing
+numpy>=1.23.0
+pandas>=1.5.0
+openpyxl>=3.0.10
+
+# Machine Learning & Modeling
+scikit-learn>=1.2.0
+imbalanced-learn>=0.10.0
+joblib>=1.2.0
+
+# Optional Gradient Boosters
+xgboost>=1.7.0
+catboost>=1.2.0
+
+# Configuration Management
+omegaconf>=2.3.0
+pyyaml>=6.0
+
+# Visualization
+matplotlib>=3.6.0
+seaborn>=0.12.0
+
+# Model Serialization & ONNX Export (Optional / Interoperability)
+onnxruntime>=1.15.0
+skl2onnx>=1.14.0
+
